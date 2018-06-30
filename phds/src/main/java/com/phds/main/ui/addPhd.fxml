@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.phds.main.ui.controllers.AddPhdController">
+    <children>
+        <ImageView fx:id="backroundImg" opacity="0.27" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="283.0" layoutY="26.0" text="Добавяне на нов докторант:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="14.0" layoutY="81.0" text="Име: *" />
+      <TextField fx:id="nameTxt" layoutX="59.0" layoutY="77.0" prefHeight="25.0" prefWidth="170.0" />
+      <Label layoutX="15.0" layoutY="149.0" text="Форма на обучение: *" />
+      <RadioButton fx:id="regularBtn" layoutX="29.0" layoutY="173.0" mnemonicParsing="false" text="редовна" />
+      <RadioButton fx:id="inAbsentiaBtn" layoutX="126.0" layoutY="173.0" mnemonicParsing="false" text="задочна" />
+      <RadioButton fx:id="freeBtn" layoutX="29.0" layoutY="209.0" mnemonicParsing="false" text="свободна" />
+      <RadioButton fx:id="distBtn" layoutX="126.0" layoutY="210.0" mnemonicParsing="false" text="дистанционна" />
+      <Label layoutX="13.0" layoutY="429.0" text="Дата на започване: *" />
+      <DatePicker fx:id="startDate" layoutX="20.0" layoutY="453.0" prefHeight="25.0" prefWidth="207.0" />
+      <Label layoutX="14.0" layoutY="490.0" text="Дата на завършване: *" />
+      <DatePicker fx:id="graduationDate" layoutX="19.0" layoutY="515.0" prefHeight="25.0" prefWidth="207.0" />
+      <Label layoutX="15.0" layoutY="241.0" text="Курс: *" />
+      <ChoiceBox fx:id="courseBox" layoutX="89.0" layoutY="237.0" prefHeight="25.0" prefWidth="92.0" />
+      <Label layoutX="15.0" layoutY="119.0" text="Специалност: *" />
+      <TextField fx:id="specialtyTxt" layoutX="103.0" layoutY="115.0" prefHeight="25.0" prefWidth="126.0" />
+      <Label layoutX="15.0" layoutY="341.0" text="Професионално направиленеие: *" />
+      <Label layoutX="537.0" layoutY="81.0" text="Анотация: *" />
+      <TextArea fx:id="annotatoinSubjectTxt" editable="false" layoutX="565.0" layoutY="104.0" prefHeight="94.0" prefWidth="200.0" />
+      <Button fx:id="addAnnotationBtn" layoutX="705.0" layoutY="203.0" mnemonicParsing="false" onAction="#openAddingAnnotation" text="Добави" />
+      <Button fx:id="closeBtn" layoutX="14.0" layoutY="561.0" mnemonicParsing="false" onAction="#closeWindow" text="Отмени" />
+      <Button fx:id="addProfessionalBtn" layoutX="167.0" layoutY="406.0" mnemonicParsing="false" onAction="#openAddingProfessional" text="Добави" />
+      <ComboBox fx:id="professionalsBox" layoutX="16.0" layoutY="368.0" prefHeight="25.0" prefWidth="207.0" />
+      <Label layoutX="303.0" layoutY="81.0" text="Научни ръководители: *" />
+      <ListView fx:id="supervisorsBox" layoutX="323.0" layoutY="105.0" prefHeight="94.0" prefWidth="200.0" />
+      <Button fx:id="addSupervisorBtn" layoutX="465.0" layoutY="207.0" mnemonicParsing="false" onAction="#openAddingSupervisors" text="Добави" />
+      <Button fx:id="removeSupervisorBtn" layoutX="323.0" layoutY="207.0" mnemonicParsing="false" onAction="#removeSupervisors" text="Премахни" />
+      <TableView fx:id="examsTable" layoutX="309.0" layoutY="272.0" prefHeight="230.0" prefWidth="453.0">
+        <columns>
+          <TableColumn fx:id="subjectClmn" prefWidth="265.0" text="Предмет" />
+          <TableColumn fx:id="dateClmn" prefWidth="110.0" text="Дата" />
+            <TableColumn fx:id="gradeClmn" prefWidth="77.0" text="Оценка" />
+        </columns>
+      </TableView>
+      <Label layoutX="302.0" layoutY="246.0" text="Изпити:" />
+      <Button fx:id="removeExam" layoutX="309.0" layoutY="515.0" mnemonicParsing="false" onAction="#removeExam" text="Премахни" />
+      <Button fx:id="addExam" layoutX="705.0" layoutY="515.0" mnemonicParsing="false" onAction="#openAddingExam" text="Добави" />
+      <Button fx:id="createPhdBtn" layoutX="727.0" layoutY="561.0" mnemonicParsing="false" onAction="#createPhd" text="Създай" />
+      <Line endX="600.0" layoutX="154.0" layoutY="550.0" startX="-100.0" />
+      <Line endX="330.0" layoutX="153.0" layoutY="299.0" rotate="90.0" startX="-100.0" />
+      <Label layoutX="12.0" layoutY="278.0" text="Утвърден от ФС: *" />
+      <Label layoutX="12.0" layoutY="312.0" text="ФС от дата: *" />
+      <TextField fx:id="fsNumTxt" layoutX="111.0" layoutY="274.0" prefHeight="25.0" prefWidth="134.0" />
+      <DatePicker fx:id="fsDate" layoutX="110.0" layoutY="308.0" prefHeight="25.0" prefWidth="134.0" />
+      <Label layoutX="520.0" layoutY="565.0" text="Всички полета с * са задължителни!" />
+    </children>
+</Pane>
